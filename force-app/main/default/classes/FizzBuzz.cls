@@ -5,10 +5,10 @@ public with sharing class FizzBuzz {
         this.min = min;
         this.max = max;
     }
-    public void ifFizzBuzz(){
+    public List<String> ifFizzBuzz(){
         Integer current = this.min;
+        List<String> printList = new List<String>();
         do{
-            System.debug('Current iteration: ' + current + '\n');
             String printString = '';
             if(Math.mod(current,3)==0){
                 printString += 'Fizz';
@@ -17,13 +17,11 @@ public with sharing class FizzBuzz {
                 printString += 'Buzz';
             }
             if(String.isBlank(printString)){
-                System.debug(current + '\n');
-            }else{
-                System.debug(printString + '\n') ;
+                printString = String.valueOf(current);
             }
+            printList.add(printString);
             current++;
-            System.debug('Current after increment: ' + current + '\n');
         }while(current <= max);
-
+        return printList;        
     }
 }
